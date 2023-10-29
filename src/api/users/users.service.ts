@@ -11,7 +11,7 @@ class UsersService {
       .getRepository(User);
   }
 
-  public async createUser(user: any): Promise<User[]> {
+  public async createUser(user: any): Promise<any> {
     const newUser = this.repository.create(user);
     return await this.repository.save(newUser);
   }
