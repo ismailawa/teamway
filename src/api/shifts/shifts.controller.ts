@@ -29,7 +29,7 @@ class UsersController implements Controller {
       validationMiddleware(CreateShiftDto),
       this.updateShift
     );
-    this.router.patch(`${this.path}/:id`, this.assignShift);
+    this.router.patch(`${this.path}/:id/assign-shift`, this.assignShift);
     this.router.delete(`${this.path}/:id`, this.deleteShift);
   }
 

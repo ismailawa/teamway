@@ -1,7 +1,9 @@
+import { UserShifts } from '../../api/users/users-shifts.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -9,7 +11,7 @@ import {
 @Entity()
 class Shift {
   @PrimaryGeneratedColumn()
-  public id?: number;
+  public id: number;
 
   @Column()
   public title: string;
@@ -19,6 +21,9 @@ class Shift {
 
   @Column({ type: 'time' })
   public endTime: string;
+
+  @OneToMany(() => UserShifts, (userShifts) => userShifts.shift)
+  public userShifts: UserShifts[];
 
   @CreateDateColumn()
   createdAt: Date;

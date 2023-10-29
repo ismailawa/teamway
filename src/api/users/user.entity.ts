@@ -2,9 +2,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import UserShifts from './users-shifts.entity';
 
 @Entity()
 class User {
@@ -29,6 +31,9 @@ class User {
 
   @Column()
   public address: string;
+
+  @OneToMany(() => UserShifts, (userShifts) => userShifts.user)
+  public userShifts: UserShifts[];
 
   @CreateDateColumn()
   createdAt: Date;

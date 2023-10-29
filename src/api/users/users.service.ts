@@ -21,7 +21,12 @@ class UsersService {
   }
 
   public async getUser(id: any): Promise<User> {
-    return await this.repository.findOneBy({ id });
+    return await this.repository.findOne({
+      relations: {
+        userShifts: true,
+      },
+      where: { id },
+    });
   }
 
   public async updateUser(id: any, user: any): Promise<any> {
