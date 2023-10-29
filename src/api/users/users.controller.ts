@@ -1,7 +1,8 @@
 import * as express from 'express';
-import Controller from 'interfaces/controller.interface';
-import validationMiddleware from 'middlewares/validation.middleware';
+
 import CreateUserDto from './user.dto';
+import Controller from '../../interfaces/controller.interface';
+import validationMiddleware from '../../middlewares/validation.middleware';
 
 class UsersController implements Controller {
   public path = '/users';

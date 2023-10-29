@@ -1,13 +1,18 @@
 import 'dotenv/config';
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
+import 'reflect-metadata';
+import 'dotenv/config';
 import App from './app';
-import config from 'ormconfig';
+import { validateEnv } from './utils/validate.env';
+import Database from './database/datasource.connection';
+
+validateEnv();
 
 (async () => {
-  const AppDataSource = new DataSource(config);
   try {
-    await AppDataSource.initialize();
+    const dataSource = Database.getInstance().getDataSource();
+    await dataSource.initialize();
   } catch (error) {
     console.log('Error while connecting to the database', error);
     return error;
