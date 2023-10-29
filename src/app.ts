@@ -1,5 +1,5 @@
 import express from 'express';
-import errorMiddleware from 'middlewares/error.middleware';
+import errorMiddleware from './middlewares/error.middleware';
 
 class App {
   public app: express.Application;
