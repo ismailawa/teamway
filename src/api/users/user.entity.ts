@@ -6,10 +6,23 @@ class User {
   public id?: number;
 
   @Column()
-  public title: string;
+  public firstName: string;
 
   @Column()
-  public content: string;
+  public lastName: string;
+
+  @Column({
+    unique: true,
+  })
+  public username: string;
+
+  @Column({
+    unique: true,
+  })
+  public email: string;
+
+  @Column()
+  public address: string;
 }
 
 export default User;

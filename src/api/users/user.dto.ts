@@ -8,10 +8,10 @@ class CreateUserDto {
   public lastName: string;
 
   @IsString()
-  public email: string;
+  public username: string;
 
   @IsString()
-  public phone: string;
+  public email: string;
 
   @IsString()
   public address: string;

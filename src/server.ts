@@ -6,6 +6,7 @@ import 'dotenv/config';
 import App from './app';
 import { validateEnv } from './utils/validate.env';
 import Database from './database/datasource.connection';
+import UsersController from './api/users/users.controller';
 
 validateEnv();
 
@@ -17,11 +18,6 @@ validateEnv();
     console.log('Error while connecting to the database', error);
     return error;
   }
-  const app = new App(
-    [
-      // new PostController(),
-    ],
-    3000
-  );
+  const app = new App([new UsersController()], 3000);
   app.listen();
 })();
